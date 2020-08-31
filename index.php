@@ -5,7 +5,7 @@ include "include/header.php";
 
 
 
-CalculatriceView::display('____________');
+RequestController::execute('first_load', null);
 
 
 

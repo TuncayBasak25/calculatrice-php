@@ -18,6 +18,7 @@ abstract class DataBaseModel
 
   protected function query($sql, ...$bind_parameters)
   {
+    $this->connect();
     if (count($bind_parameters) === 0) {
       $stmt = $this->conn->prepare($sql);
       if ($stmt === FALSE) {

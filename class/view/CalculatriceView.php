@@ -11,7 +11,7 @@ class CalculatriceView
         for ($i=0; $i<strlen($screen_digit); $i++) {
           ?>
           <div class="screen_digit col-1 p-0 ratio_calc">
-            <p class="text-center"> <?= $screen_digit[$i] ?> </p>
+            <p class="text-center screen_digit_text"> <?= $screen_digit[$i] ?> </p>
           </div>
           <?php
         }
@@ -19,7 +19,7 @@ class CalculatriceView
       </div>
       <div id="calculatrice_board" class="d-flex flex-wrap">
         <?php
-        $button_list = ['1', '2', '3', '+', '-', '4', '5', '6', '*', '/', '7', '8', '9', 'x²', 'x³', '0', '.', 'sqrt', 'PI', 'e', 'cos', 'sin', 'mR', 'mS', 'tan', 'a...', 'Clear'];
+        $button_list = ['1', '2', '3', '+', '-', '4', '5', '6', '*', '/', '7', '8', '9', 'x²', 'x³', '00', '.', 'sqrt', 'cbrt', 'PI', 'cos', 'mS', 'mR', 'sin', 'tan', '=', 'Clear'];
         foreach ($button_list as $index => $button) {
           if ($index < 3 || $index > 4 && $index < 8 || $index > 9 && $index < 13 || $index === 16) { //small button
             $button_class = "col-2";
@@ -31,8 +31,8 @@ class CalculatriceView
             $button_class = "col-3";
           }
           ?>
-          <div class="<?= $button_class ?> calculatrice_button p-0 ratio_calc border" onclick="ajax(request('<? $button ?>'), 'ajaxClickResponse')">
-            <p class="text-center"><?= $button ?></p>
+          <div class="<?= $button_class ?> calculatrice_button p-0 ratio_calc border" onclick="ajax(request('<?= $button ?>'), ajaxClickResponse)">
+            <p class="text-center"><?php if ($button !== '00') echo $button; else echo '0'; ?></p>
           </div>
           <?php
         }
