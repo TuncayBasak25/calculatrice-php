@@ -17,4 +17,4 @@ require_once 'include/class_auto_loader.php';
   <link rel='stylesheet' href='css/main.css'>
   <title>Calculatrice-PHP</title>
 </head>
-<body oncontextmenu="return false" onclick="clickOnBody()" style='user-select: none'>
+<body onresize="ratioSetter()" style='user-select: none'>

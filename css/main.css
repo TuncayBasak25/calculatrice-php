@@ -1,0 +1,21 @@
+.calculatrice_button
+{
+  background-color: grey;
+}
+
+.calculatrice_button:hover
+{
+  background-color: cyan;
+}
+
+.screen_digit
+{
+  overflow: hidden;
+}
+
+.calculatrice_text
+{
+  display: inline;
+
+  vertical-align: middle;
+}

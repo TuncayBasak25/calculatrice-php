@@ -5,8 +5,7 @@ include "include/header.php";
 
 
 
-
-CalculatriceView::display();
+CalculatriceView::display('____________');
 
 
 

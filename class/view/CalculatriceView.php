@@ -2,16 +2,24 @@
 
 class CalculatriceView
 {
-  public static function display()
+  public static function display($screen_digit)
   {
     ?>
-    <section id="calculatrice">
-      <div id="screen">
-
-      </div>
-      <div id="button_board" class="d-flex flex-wrap">
+    <div id="calculatrice_main" class="calculatrice w-25 m-auto">
+      <div id="calculatrice_screen" class="d-flex">
         <?php
-        $button_list = ['1', '2', '3', '+', '-', '4', '5', '6', '*', '/', '7', '8', '9', 'x²', 'x³', '0', '.', 'sqrt', 'PI', 'e', 'cos', 'sin', 'mR', 'mS', 'tan', 'a...'];
+        for ($i=0; $i<strlen($screen_digit); $i++) {
+          ?>
+          <div class="screen_digit col-1 p-0 ratio_calc">
+            <p class="text-center"> <?= $screen_digit[$i] ?> </p>
+          </div>
+          <?php
+        }
+         ?>
+      </div>
+      <div id="calculatrice_board" class="d-flex flex-wrap">
+        <?php
+        $button_list = ['1', '2', '3', '+', '-', '4', '5', '6', '*', '/', '7', '8', '9', 'x²', 'x³', '0', '.', 'sqrt', 'PI', 'e', 'cos', 'sin', 'mR', 'mS', 'tan', 'a...', 'Clear'];
         foreach ($button_list as $index => $button) {
           if ($index < 3 || $index > 4 && $index < 8 || $index > 9 && $index < 13 || $index === 16) { //small button
             $button_class = "col-2";
@@ -23,14 +31,14 @@ class CalculatriceView
             $button_class = "col-3";
           }
           ?>
-          <div class="<?= $button_class ?> calculatrice_button" onclick="ajax(request('<?= $button ?>'), buttonClick('<?= $button ?>')))">
-
+          <div class="<?= $button_class ?> calculatrice_button p-0 ratio_calc border" onclick="ajax(request('<? $button ?>'), 'ajaxClickResponse')">
+            <p class="text-center"><?= $button ?></p>
           </div>
           <?php
         }
          ?>
       </div>
-    </section>
+    </div>
     <?php
   }
 }

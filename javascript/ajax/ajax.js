@@ -1,4 +1,4 @@
-function ajax(data, callFunction, that = null) {
+function ajax(data, callFunction, that = null) {console.log('ajax');
   // (B) AJAX
   let xhr = new XMLHttpRequest();
   xhr.open("POST", 'action/ajaxRequest.php');
@@ -12,7 +12,7 @@ function ajax(data, callFunction, that = null) {
 }
 
 
-function request(requestName) {
+function request(requestName) {console.log('request');
   let data = new FormData();
 
   data.append("request", requestName);
