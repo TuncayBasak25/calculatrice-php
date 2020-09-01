@@ -10,8 +10,9 @@ class CalculatriceView
         <?php
         for ($i=0; $i<strlen($screen_digit); $i++) {
           ?>
-          <div class="screen_digit col-1 p-0 ratio_calc">
-            <p class="text-center screen_digit_text"> <?= $screen_digit[$i] ?> </p>
+          <div class="screen_digit col-1 p-0 ratio_calc d-flex flex-wrap justify-content-center align-content-center bg-secondary">
+            <div class="digit_case bg-info" style="border: 3px solid black; border-bottom: none;"></div>
+            <div class="digit_case bg-info" style="border: 3px solid black; border-top: none"></div>
           </div>
           <?php
         }
